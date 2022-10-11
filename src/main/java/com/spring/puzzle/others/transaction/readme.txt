@@ -41,3 +41,18 @@ CREATE TABLE `student`
         `balance`    int(11) DEFAULT NULL,
         PRIMARY KEY (`id`)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf*/
+/*
+@Transactional 对 private 方法不生效，所以我们应该把需要支持事务的方法声明为
+public 类型；
+Spring 处理事务的时候，默认只对 RuntimeException 和 Error 回滚，不会对
+Exception 回滚，如果有特殊需要，需要额外声明，例如指明 Transactional 的属性
+rollbackFor 为 Exception.class。
+*/
+
+/*
+Spring 默认的传播属性是 REQUIRED，在有事务状态下执行，如果当前没有事务，则
+创建新的事务；
+Spring 事务是可以对多个数据源生效，它提供了一个抽象类
+AbstractRoutingDataSource，通过实现这个抽象类，我们可以实现自定义的数据库切
+换。
+*/

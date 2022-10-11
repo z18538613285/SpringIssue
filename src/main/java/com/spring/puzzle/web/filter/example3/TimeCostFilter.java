@@ -7,7 +7,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-@WebFilter
+//@WebFilter
 @Slf4j
 @Order(1)
 public class TimeCostFilter implements Filter {

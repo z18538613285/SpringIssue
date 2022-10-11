@@ -10,6 +10,11 @@ public class LightMgrService {
 
     private LightService lightService;
 
+    /**
+     *
+     * 使用构造器参数来隐式注入是一种 Spring 最佳实践
+     */
+
     public LightMgrService(LightService lightService) {
         this.lightService = lightService;
         lightService.check();

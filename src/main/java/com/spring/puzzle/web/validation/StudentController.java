@@ -15,7 +15,13 @@ import javax.validation.Valid;
 @Slf4j
 @Validated
 public class StudentController {
-    
+
+    /**
+     *
+     *1. 标记 @Validated
+     * 2. 标记 @Valid 关键字开头的注解
+     */
+
     @RequestMapping(path = "students", method = RequestMethod.POST)
     public void addStudent(@Valid @RequestBody Student student){
         log.info("add new student: {}", student.toString());

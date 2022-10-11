@@ -7,9 +7,9 @@ public class AdminUserService {
 
     public final User adminUser = new User("202101166");
 
-/*    public User getAdminUser() {
+    public User getAdminUser() {
         return adminUser;
-    }*/
+    }
 
     public void login() {
         System.out.println("admin user login...");

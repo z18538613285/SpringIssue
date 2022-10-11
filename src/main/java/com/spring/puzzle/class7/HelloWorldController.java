@@ -16,6 +16,12 @@ import java.util.concurrent.Executors;
 
 import static org.springframework.context.support.AbstractApplicationContext.APPLICATION_EVENT_MULTICASTER_BEAN_NAME;
 
+/***
+ *
+ * 最终事件的执行是由同一
+ * 个线程按顺序来完成的，任何一个报错，都会导致后续的监听器执行不了。
+ */
+
 @RestController
 @Slf4j
 public class HelloWorldController {
@@ -27,15 +33,21 @@ public class HelloWorldController {
 
     @RequestMapping(path = "publishEvent", method = RequestMethod.GET)
     public String notifyEvent(){
-/*        applicationContext.start();
-        applicationContext.stop();
-        applicationContext.close();*/
+//        applicationContext.start();
+//        applicationContext.stop();
+//        applicationContext.close();
         log.info("start to publish event");
         SimpleApplicationEventMulticaster simpleApplicationEventMulticaster = applicationContext.getBean(APPLICATION_EVENT_MULTICASTER_BEAN_NAME, SimpleApplicationEventMulticaster.class);
+        /***
+         *事件的发布和执行使用的都是 nio-8080-exec-1 线程，但是在事件比
+         * 较多时，我们往往希望事件执行得更快些，或者希望事件的执行可以异步化不影响主线
+         * 程。此时应该怎么做呢？
+         */
+
         simpleApplicationEventMulticaster.setTaskExecutor(newCachedThreadPool);
-
+//
         simpleApplicationEventMulticaster.setErrorHandler(TaskUtils.LOG_AND_SUPPRESS_ERROR_HANDLER);
-
+//
         applicationContext.publishEvent(new MyEvent(UUID.randomUUID()));
         return "ok";
     };

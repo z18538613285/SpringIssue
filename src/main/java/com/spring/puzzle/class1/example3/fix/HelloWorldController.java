@@ -19,15 +19,15 @@ public class HelloWorldController {
     public String hi(){
          return "helloworld, service is : " + getServiceImpl();
     };
+//
+//    @Lookup
+//    public ServiceImpl getServiceImpl(){
+//        log.info("executing this method");
+//        return null;
+//    }
 
-    @Lookup
     public ServiceImpl getServiceImpl(){
-        log.info("executing this method");
-        return null;
-    }
-
-/*    public ServiceImpl getServiceImpl(){
         return applicationContext.getBean(ServiceImpl.class);
-    }*/
+    }
 
 }

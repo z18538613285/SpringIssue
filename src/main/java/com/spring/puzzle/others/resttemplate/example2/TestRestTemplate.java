@@ -24,6 +24,13 @@ public class TestRestTemplate {
 
     }
 
+    /**
+     *通过这个例子我们可以知道，当 URL 中含有特殊字符时，一定要注意 URL 的组装方式，
+     * 尤其是要区别下面这两种方式：
+     * UriComponentsBuilder#fromHttpUrl
+     * UriComponentsBuilder#fromUriString
+     */
+
     public static void main2(String[] args) {
         String url = "http://localhost:8080/hi?para1=1#2";
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url);

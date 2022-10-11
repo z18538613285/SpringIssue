@@ -1,20 +1,24 @@
 package com.spring.puzzle.class5.example1;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ElectricService {
 
-/*    @Autowired
-    ElectricService electricService;*/
+    /**
+     *只有引用的是被动态代理创建出来的对象，才会被 Spring
+     * 增强，具备 AOP 该有的功能。
+     */
+
+    @Autowired
+    ElectricService electricService;
 
     public void charge() throws Exception {
         System.out.println("Electric charging ...");
-        this.pay();
+//        this.pay();
 
-/*
          electricService.pay();
-*/
 
 /*        ElectricService electric = ((ElectricService) AopContext.currentProxy());
         electric.pay();*/

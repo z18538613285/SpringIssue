@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentController {
 
 
+    /**
+     *
+     * 打破上述两个条件
+     * 中的任何一个即可，即让候选项具有优先级或压根可以不去选择。
+     */
+
     @Autowired
     DataService dataService;
 

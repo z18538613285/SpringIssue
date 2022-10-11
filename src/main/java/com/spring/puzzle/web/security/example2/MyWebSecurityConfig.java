@@ -2,13 +2,13 @@ package com.spring.puzzle.web.security.example2;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.authority.SimpleGrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
-//import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -27,9 +27,9 @@ should uncomment the dependency and related code in pom.xml
 
 
 @Configuration
-public class MyWebSecurityConfig/* extends WebSecurityConfigurerAdapter*/ {
+public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-/*    @Bean
+    @Bean
     public PasswordEncoder passwordEncoder() {
         return new PasswordEncoder() {
             @Override
@@ -54,11 +54,9 @@ public class MyWebSecurityConfig/* extends WebSecurityConfigurerAdapter*/ {
                 .withUser(new UserDetails() {
                     @Override
                     public Collection<? extends GrantedAuthority> getAuthorities() {
-
-                        return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
-
-                        // return Arrays.asList(new SimpleGrantedAuthority("ADMIN"));
-
+                        // ROLE_ 前缀在 Spring Security 前缀中非常重要。
+                        //return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+                         return Arrays.asList(new SimpleGrantedAuthority("ADMIN"));
                     }
 
                     @Override
@@ -102,5 +100,5 @@ public class MyWebSecurityConfig/* extends WebSecurityConfigurerAdapter*/ {
                 .and()
                 .formLogin().loginProcessingUrl("/login").permitAll()
                 .and().csrf().disable();
-    }*/
+    }
 }

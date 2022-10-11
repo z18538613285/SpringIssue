@@ -13,7 +13,14 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter
+/**
+ *
+ * RegistrationBean 中 order 属性的值最终可以决定过滤器的执行顺序。但是可惜的
+ * 是：当使用 @WebFilter 时，构建的 FilterRegistrationBean 并没有依据 @Order 的值去
+ * 设置 order 属性，所以 @Order 失效了。
+ */
+
+//@WebFilter
 @Slf4j
 @Order(2)
 public class AuthFilter implements Filter {

@@ -16,10 +16,12 @@ import java.io.IOException;
 @Slf4j
 @Order(1)
 public class TimeCostFilter implements Filter {
-
+    //最终 TimeCostFilter 实例是一种 InnerBean，所以自动注入
+    //        不到也就非常合理了
     public TimeCostFilter(){
         System.out.println("construct");
     }
+
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         System.out.println("#开始计算接口耗时");

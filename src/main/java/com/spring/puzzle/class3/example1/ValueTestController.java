@@ -21,6 +21,12 @@ public class ValueTestController {
     @Value("#{student}")
     private Student student;
 
+    /**
+     * 所以命名时，我们一定要注意不仅要避免和环境变量冲
+     * 突，也要注意避免和系统变量等其他变量冲突，
+     * 胡志超,, pass
+     */
+
     @RequestMapping(path = "user", method = RequestMethod.GET)
     public String getUser(){
        return username + ","  + ", " + password;

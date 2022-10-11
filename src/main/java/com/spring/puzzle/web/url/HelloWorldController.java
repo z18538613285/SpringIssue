@@ -26,13 +26,13 @@ public class HelloWorldController {
         return name;
     };
 
-/*    @RequestMapping(path = "/hi1/**", method = RequestMethod.GET)
+    @RequestMapping(path = "/hi1/**", method = RequestMethod.GET)
     public String hi1(HttpServletRequest request){
         String path = (String) request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
         String matchPattern = (String) request.getAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE); // /rest/**
         antPathMatcher = new AntPathMatcher();
         return antPathMatcher.extractPathWithinPattern(matchPattern, path); // 1/53879d5c-b07b-44f2-9a77-b99f67bb8481
-    };*/
+    };
 
 
     @RequestMapping(path = "/hi2", method = RequestMethod.GET)

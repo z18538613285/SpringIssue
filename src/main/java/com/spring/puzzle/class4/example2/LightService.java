@@ -2,7 +2,7 @@ package com.spring.puzzle.class4.example2;
 
 import org.springframework.stereotype.Service;
 
-//@Service
+@Service
 public class LightService {
 
     public void start() {

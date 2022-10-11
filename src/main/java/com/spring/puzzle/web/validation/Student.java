@@ -14,6 +14,11 @@ public class Student {
     private String name;
     private short age;
 
+    /**
+     *要让嵌套校验生效，解决
+     * 的方法只有一种，就是加上 @Valid
+     */
+
     @Valid
     private Phone phone;
 

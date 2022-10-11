@@ -16,6 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentController {
 
 
+    /**
+     *
+     * 如果一个类名是以两个大写字母开
+     * 头的，则首字母不变，其它情况下默认首字母变成小写。
+     */
+
     @Autowired
     @Qualifier("CassandraDataService")
     DataService dataService;

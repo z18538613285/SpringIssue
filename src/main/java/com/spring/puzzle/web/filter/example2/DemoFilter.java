@@ -11,13 +11,22 @@ import java.io.IOException;
 
 @Component
 public class DemoFilter implements Filter {
+    /**
+     *
+     * 职责链则是一
+     * 个对象把子任务交给其他对象的同名方法去完成
+     */
+
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         try {
             //模拟异常
             System.out.println("Filter处理中时发生异常");
             throw new RuntimeException();
         } catch (Exception e) {
-            chain.doFilter(request, response);
+            // 不管怎么调用，不能多次调用
+            //FilterChain#doFilter()
+            //chain.doFilter(request, response);
         }
         chain.doFilter(request, response);
     }

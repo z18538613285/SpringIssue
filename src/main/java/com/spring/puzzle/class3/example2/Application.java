@@ -29,6 +29,21 @@ public class Application {
         return createStudent(2, "fang");
     }
 
+    /***
+     *这两种装配集合的方式是不能同存的，结合本案例，当使用收集装配方式来装配
+     * 时，能找到任何一个对应的 Bean，则返回，如果一个都没有找到，才会采用直接装配的方
+     * 式。
+     *
+     * ：在对于同一个集合对象的注入上，混合多种注入方
+     * 式是不可取的，这样除了错乱，别无所得。
+     */
+
+    @Bean
+    public List<Student> students(){
+        Student student3 = createStudent(3, "liu");
+        Student student4 = createStudent(4, "fu");
+        return Arrays.asList(student3, student4);
+    }
 /*    @Bean
     public Student student3(){
         return createStudent(3, "liu");
@@ -46,11 +61,6 @@ public class Application {
         return student;
     }
 
-    @Bean
-    public List<Student> students(){
-        Student student3 = createStudent(3, "liu");
-        Student student4 = createStudent(4, "fu");
-        return Arrays.asList(student3, student4);
-    }
+
 
 }

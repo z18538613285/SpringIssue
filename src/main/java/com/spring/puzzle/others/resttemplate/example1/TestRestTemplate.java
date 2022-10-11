@@ -16,6 +16,13 @@ public class TestRestTemplate {
         paramMap.put("para1", "001");
         paramMap.put("para2", "002");
 
+        /**
+         *只有当我们发送的 Body 是 MultiValueMap 才能使用表
+         * 单来提交。学到这里，你可能会豁然开朗。原来使用 RestTemplate 提交表单必须是
+         * MultiValueMap，而我们案例定义的就是普通的 HashMap，最终是按请求 Body 的方式
+         * 发送出去的。
+         */
+
 
 /*        MultiValueMap<String, Object> paramMap = new LinkedMultiValueMap<String, Object>();
         paramMap.add("para1", "001");

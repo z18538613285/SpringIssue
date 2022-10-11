@@ -17,10 +17,8 @@ public class ElectricService {
 
     public void pay() throws Exception {
         adminUserService.login();
-        String payNum = adminUserService.adminUser.getPayNum();
-/*
+//        String payNum = adminUserService.adminUser.getPayNum();
         String payNum = adminUserService.getAdminUser().getPayNum();
-*/
         System.out.println("User pay num : " + payNum);
         System.out.println("Pay with alipay ...");
         Thread.sleep(1000);

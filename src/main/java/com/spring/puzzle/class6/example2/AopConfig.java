@@ -16,7 +16,8 @@ public class AopConfig {
         System.out.println("step into ->"+pjp.getSignature());
     }
     @Before("execution(* com.spring.puzzle.class6.example2.ElectricService.charge()) ")
-    public void validateAuthority(JoinPoint pjp) throws Throwable {
+    public void checkAuthority(JoinPoint pjp) throws Throwable {
+//    public void validateAuthority(JoinPoint pjp) throws Throwable {
         throw new RuntimeException("authority check failed");
     }
 

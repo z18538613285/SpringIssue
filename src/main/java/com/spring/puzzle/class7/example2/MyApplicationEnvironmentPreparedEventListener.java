@@ -5,6 +5,12 @@ import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEven
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
+/***
+ *
+ * ：我们定义的监听器并不能监听到 initialMulticaster
+ * 广播出的 ApplicationEnvironmentPreparedEvent。
+ */
+
 @Slf4j
 @Component
 public class MyApplicationEnvironmentPreparedEventListener implements ApplicationListener<ApplicationEnvironmentPreparedEvent > {
@@ -12,6 +18,7 @@ public class MyApplicationEnvironmentPreparedEventListener implements Applicatio
     public MyApplicationEnvironmentPreparedEventListener(){
 
     }
+    @Override
     public void onApplicationEvent(final ApplicationEnvironmentPreparedEvent event) {
         log.info("{} received: {}", this.toString(), event);
     }

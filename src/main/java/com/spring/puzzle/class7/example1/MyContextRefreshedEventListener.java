@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyContextRefreshedEventListener implements ApplicationListener<ContextRefreshedEvent> {
 
+  @Override
   public void onApplicationEvent(final ContextRefreshedEvent event) {
     log.info("{} received: {}", this.toString(), event);
   }

@@ -24,9 +24,14 @@ public class StudentController {
         }
     }
 
+    /**
+     * 内部类生成的bean名称
+     * 对源码的学习是否全面决定了我们以后犯错的可能性大小
+     */
+
     @Autowired
-    @Qualifier("innerClassDataService")
-            //下面为修正方法
+//    @Qualifier("innerClassDataService")
+            //下面为修正方法 对源码的学习是否全面决定了我们以后犯错的可能性大小
 /*
     @Qualifier("studentController.InnerClassDataService")
 */

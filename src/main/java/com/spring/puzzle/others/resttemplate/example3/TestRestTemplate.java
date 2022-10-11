@@ -24,6 +24,10 @@ public class TestRestTemplate {
 
     }
 
+    /**
+     *，这种修正方式就是避免多次转化而发生多次编码
+     */
+
     public static void main2(String[] args) {
         RestTemplate restTemplate = new RestTemplate();
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl("http://localhost:8080/hi");
