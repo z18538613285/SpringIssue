@@ -25,7 +25,7 @@ public class TestRestTemplate {
     }
 
     /**
-     *，这种修正方式就是避免多次转化而发生多次编码
+     * 这种修正方式就是避免多次转化而发生多次编码
      */
 
     public static void main2(String[] args) {
